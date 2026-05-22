@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview - UPI Fraud Detection</title>
+
+  <!-- CSS -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/modern.css') }}" rel="stylesheet">
+
+  <style>
+    .preview-container {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .preview-img {
+      max-width: 400px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .btn-group {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="page-shell">
+    <a class="brand" href="{{ url_for('first') }}">
+      <span class="brand-mark">U</span>
+      <span class="brand-title">UPI Fraud Detection</span>
+    </a>
+
+    <nav class="navbar">
+      <a href="{{ url_for('first') }}">Home</a>
+      <a href="{{ url_for('login') }}">Login</a>
+      <a class="active" href="{{ url_for('upload') }}">Upload</a>
+      <a href="{{ url_for('prediction1') }}">Check</a>
+      <a href="{{ url_for('chart') }}">Chart</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <section class="section-shell">
+    <div class="page-shell">
+
+      <div class="glass-card preview-container">
+
+        <h1>🖼 Image Preview</h1>
+        <p class="page-subtitle">Review your uploaded image before proceeding.</p>
+
+        <!-- IMAGE DISPLAY -->
+        {% if image_path %}
+          <img src="/{{ image_path }}" class="preview-img">
+        {% else %}
+          <p style="color:red;">No image found ❌</p>
+        {% endif %}
+
+        <!-- BUTTONS -->
+        <div class="btn-group">
+
+          <button class="btn-modern" onclick="goNext()">
+            Continue →
+          </button>
+
+          <button class="btn-modern" onclick="window.location='{{ url_for('upload') }}'">
+            ⬅ Upload Again
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- SCRIPT -->
+<script>
+function goNext() {
+  alert("Processing complete!");
+  window.location = "{{ url_for('prediction1') }}";
+}
+</script>
+
+</body>
+</html>

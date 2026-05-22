@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fraud Detection</title>
+
+  <link href="{{ url_for('static', filename='css/modern.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="page-shell">
+
+  <h1>🚀 Fraud Detection</h1>
+
+  <form class="modern-form" action="{{ url_for('detect') }}" method="post">
+
+    <div class="form-grid">
+
+      <div class="field-group full-span">
+        <label>UPI Number</label>
+        <input type="text" name="card_number" required>
+      </div>
+
+      <div class="field-group">
+        <label>DOB</label>
+        <input type="date" name="dob" required>
+      </div>
+
+      <div class="field-group">
+        <label>State</label>
+        <select name="state">
+          <option value="19">Punjab</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>Pin</label>
+        <input type="text" name="zip" required>
+      </div>
+
+      <div class="field-group">
+        <label>Date Time</label>
+        <input type="datetime-local" name="trans_datetime" required>
+      </div>
+
+      <div class="field-group">
+        <label>Amount</label>
+        <input type="number" name="trans_amount" required>
+      </div>
+
+      <div class="field-group">
+        <label>Category</label>
+        <select name="category">
+          <option value="0">Entertainment</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button type="submit">Detect</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>

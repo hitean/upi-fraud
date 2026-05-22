@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Result - UPI Fraud Detection</title>
+
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/modern.css') }}" rel="stylesheet">
+
+  <style>
+    .result-text {
+      font-size: 28px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .fraud {
+      color: #ef4444;
+    }
+
+    .safe {
+      color: #22c55e;
+    }
+
+    .prob {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .reason {
+      margin-top: 8px;
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="result-shell">
+  <section class="result-card">
+
+    <span class="result-badge">
+      <i class="bi bi-activity"></i> Prediction Result
+    </span>
+
+    <h1 class="result-title">Transaction Assessment Complete</h1>
+
+    <!-- 🔥 RESULT -->
+    {% if "FRAUD" in OUTPUT %}
+      <p class="result-text fraud">🚨 {{ OUTPUT }}</p>
+    {% else %}
+      <p class="result-text safe">✅ {{ OUTPUT }}</p>
+    {% endif %}
+
+    <!-- 🔥 CONFIDENCE -->
+    <p class="prob">
+      Confidence: <strong>{{ PROB }}%</strong>
+    </p>
+
+    <!-- 🔥 REASON -->
+    <p class="reason">
+      Reason: {{ REASON }}
+    </p>
+
+    <p class="result-note">
+      This result is generated using an AI-based fraud detection model.
+    </p>
+
+    <div class="form-actions" style="justify-content: center; gap:10px;">
+      <button class="btn-modern" onclick="location.href='{{ url_for('first') }}'">
+        🏠 Home
+      </button>
+
+      <button class="btn-modern" onclick="location.href='{{ url_for('prediction1') }}'">
+        🔁 Try Again
+      </button>
+    </div>
+
+  </section>
+</main>
+
+</body>
+</html>

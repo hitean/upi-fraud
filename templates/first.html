@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>UPI Fraud Detection</title>
+  <link href="{{ url_for('static', filename='img/favicon.png', v='20260422') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png', v='20260422') }}" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/aos/aos.css', v='20260422') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css', v='20260422') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/modern.css', v='20260422') }}" rel="stylesheet">
+</head>
+<body>
+  <header id="header">
+    <div class="page-shell site-header">
+      <a class="brand" href="{{ url_for('first') }}">
+        <span class="brand-mark">U</span>
+        <span class="brand-copy">
+          <span class="brand-title">UPI Fraud Detection</span>
+          <span class="brand-subtitle">Secure transaction screening</span>
+        </span>
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link active" href="{{ url_for('first') }}">Home</a></li>
+          <li><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+          <li><a class="nav-link" href="{{ url_for('upload') }}">Upload</a></li>
+          <li><a class="nav-link" href="{{ url_for('prediction1') }}">Check</a></li>
+          <li><a class="nav-link" href="{{ url_for('chart') }}">Chart</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="page-shell hero-grid">
+        <div class="hero-copy" data-aos="fade-up">
+          <span class="eyebrow"><i class="bi bi-shield-check"></i> AI-assisted payment safety</span>
+          <h1>Detect suspicious UPI transactions with a cleaner, faster, more modern experience.</h1>
+          <p>
+            This platform combines machine learning, transaction metadata, and guided workflows to help you review
+            activity, upload datasets, and run fraud checks without changing the existing backend logic.
+          </p>
+          <div class="cta-row">
+            <a class="btn-modern" href="{{ url_for('prediction1') }}">Start fraud check</a>
+            <a class="btn-ghost" href="#about">Explore overview</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-aos="zoom-in" data-aos-delay="100">
+          <span class="hero-orb one"></span>
+          <span class="hero-orb two"></span>
+          <div class="visual-panel glass-card">
+            <div class="visual-stack">
+              <div class="metric-card">
+                <div>
+                  <div class="card-kicker">Model confidence</div>
+                  <div class="metric-value">98.8%</div>
+                  <div class="stat-label">High-signal fraud screening with a guided operator flow.</div>
+                </div>
+                <div class="metric-bars">
+                  <div class="metric-bar"><span style="width: 92%"></span></div>
+                  <div class="metric-bar"><span style="width: 76%"></span></div>
+                  <div class="metric-bar"><span style="width: 84%"></span></div>
+                </div>
+              </div>
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <div class="feature-icon"><i class="bi bi-lightning-charge"></i></div>
+                  <h3>Fast checks</h3>
+                  <p>Keep review cycles short with direct access to the fraud detection form.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><i class="bi bi-bar-chart-line"></i></div>
+                  <h3>Readable insights</h3>
+                  <p>Use clean chart views and structured pages instead of cluttered legacy layouts.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+                  <h3>Dataset upload</h3>
+                  <p>Preview files and continue into the existing train and test flow without changing it.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell">
+      <div class="page-shell section-grid">
+        <div data-aos="fade-right">
+          <div class="card-kicker">Abstract</div>
+          <h2 class="section-heading">A more aesthetic interface for the same working fraud detection system.</h2>
+          <p class="section-lead">
+            UPI fraud continues to grow with digital payment adoption. Traditional rule-based approaches often struggle
+            with complex, imbalanced, and fast-changing transaction patterns. This project uses a CNN-based fraud
+            detection workflow to learn hidden patterns from labeled payment data and classify potentially fraudulent
+            transactions more effectively.
+          </p>
+        </div>
+        <div class="glass-card" data-aos="fade-left">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-value">24/7</span>
+              <span class="stat-label">Continuous transaction screening support</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">10</span>
+              <span class="stat-label">Core transaction features used during prediction</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-value">1 flow</span>
+              <span class="stat-label">Upload, preview, train-test, and detect with no backend changes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a href="#" class="back-to-top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js', v='20260422') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js', v='20260422') }}"></script>
+</body>
+</html>

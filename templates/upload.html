@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Image - UPI Fraud Detection</title>
+
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/modern.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="page-shell">
+    <a class="brand" href="{{ url_for('first') }}">
+      <span class="brand-mark">U</span>
+      <span class="brand-title">UPI Fraud Detection</span>
+    </a>
+
+    <nav class="navbar">
+      <a href="{{ url_for('first') }}">Home</a>
+      <a href="{{ url_for('login') }}">Login</a>
+      <a class="active" href="{{ url_for('upload') }}">Upload</a>
+      <a href="{{ url_for('prediction1') }}">Check</a>
+      <a href="{{ url_for('chart') }}">Chart</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section-shell">
+    <div class="page-shell">
+
+      <div class="glass-card">
+
+        <h1 class="page-title">🖼 Upload Image</h1>
+        <p class="page-subtitle">
+          Upload a transaction screenshot or fraud-related image.
+        </p>
+
+        <!-- ✅ IMAGE UPLOAD FORM -->
+        <form action="{{ url_for('preview') }}" method="post" enctype="multipart/form-data">
+
+          <div class="upload-dropzone" style="text-align:center; padding:30px; border:2px dashed #444; border-radius:12px;">
+            
+            <div class="upload-icon" style="font-size:40px; margin-bottom:10px;">
+              <i class="bi bi-image"></i>
+            </div>
+
+            <h3>Select Image</h3>
+            <p style="color:gray;">Only JPG / PNG allowed</p>
+
+            <input 
+              type="file" 
+              name="imagefile" 
+              accept="image/png, image/jpeg"
+              required
+              style="margin-top:15px;"
+            >
+
+          </div>
+
+          <div class="form-actions" style="margin-top:20px; text-align:center;">
+            <button type="submit" class="btn-modern">Upload Image</button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

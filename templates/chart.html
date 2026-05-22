@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Charts - UPI Fraud Detection</title>
+
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/modern.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+<header id="header">
+  <div class="page-shell site-header">
+    <a class="brand" href="{{ url_for('first') }}">
+      <span class="brand-mark">U</span>
+      <span class="brand-copy">
+        <span class="brand-title">UPI Fraud Detection</span>
+      </span>
+    </a>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="{{ url_for('first') }}">Home</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('upload') }}">Upload</a></li>
+        <li><a href="{{ url_for('prediction1') }}">Check</a></li>
+        <li><a class="active" href="{{ url_for('chart') }}">Chart</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section-shell">
+    <div class="page-shell">
+
+      <h1 class="page-title">📊 Analytics Dashboard</h1>
+
+      <div class="charts-grid">
+
+        <div class="chart-card">
+          <h3>Category Distribution</h3>
+          <div id="barChart" style="width:100%; height:350px;"></div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Fraud vs Real</h3>
+          <div id="pieChart" style="width:100%; height:350px;"></div>
+        </div>
+
+        <div class="chart-card wide">
+          <h3>Accuracy Graph</h3>
+          <div id="lineChart" style="width:100%; height:400px;"></div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- Scripts -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawCharts);
+
+  function drawCharts() {
+    drawBar();
+    drawPie();
+    drawLine();
+  }
+
+  // 🔹 BAR CHART
+  function drawBar() {
+    var data = google.visualization.arrayToDataTable([
+      ['Category', 'Count'],
+      ['Free Money', 182],
+      ['Stalking', 175],
+      ['Investment', 160],
+      ['Job Opening', 154]
+    ]);
+
+    var options = {
+      backgroundColor: 'transparent',
+      legend: { position: 'none' }
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('barChart'));
+    chart.draw(data, options);
+  }
+
+  // 🔹 PIE CHART
+  function drawPie() {
+    var data = google.visualization.arrayToDataTable([
+      ['Type', 'Value'],
+      ['Fraud', 35],
+      ['Real', 75]
+    ]);
+
+    var options = {
+      is3D: true,
+      backgroundColor: 'transparent'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
+    chart.draw(data, options);
+  }
+
+  // 🔹 LINE CHART
+  function drawLine() {
+    var data = google.visualization.arrayToDataTable([
+      ['Epoch', 'Train Accuracy', 'Test Accuracy'],
+      ['10', 0.75, 0.74],
+      ['20', 0.82, 0.81],
+      ['30', 0.85, 0.86],
+      ['40', 0.92, 0.93],
+      ['50', 0.99, 0.998]
+    ]);
+
+    var options = {
+      backgroundColor: 'transparent',
+      curveType: 'function'
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('lineChart'));
+    chart.draw(data, options);
+  }
+
+  // 🔄 RESPONSIVE FIX
+  window.addEventListener('resize', drawCharts);
+</script>
+
+</body>
+</html>
